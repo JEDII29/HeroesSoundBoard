@@ -9,7 +9,11 @@ int8_t pressed = -1;
 int8_t last_pressed = -1;
 
 int8_t pin_track_offset = 7; //numer najnizszego pinu minus 1
+bool pressedFlag = false;
 
+void IRAM_ATTR handleMCPInterrupt() {
+  pressedFlag = true;
+}
 void setup()
 {
   Serial.begin(115200);
